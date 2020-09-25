@@ -97,17 +97,22 @@
         </div>
 
     </div>
-<!-- This is an A11y Change -->
-<div class="text">
-    <label id="tp1-label" for="first">First Name:</label>
-    <input type="text" id="first" name="first" size="20"
-    aria-labelledby="tp1-label"
-    aria-describedby="tp1"
-    aria-required="false" />
-    <div id="tp1" class="tooltip"
-    role="tooltip"
-    aria-hidden="true">Your first name is optional</div>
-    </div>
+<!-- This is a Semantic HTML Change -->
+<section class="buttons-section">
+    <h3>Button Types</h3>
+    <!-- This is an A11y Change -->
+    <button class="button" id="button_state" aria-pressed="false" aria-describedby="button-example">Button</button>
+    <span id="button-example" class="visuallyhidden">Example button markup</span>
+    <button type="button" class="button-icon heart button--outline" id="button_like" aria-pressed="false" aria-describedby="like-button-example" aria-label="heart icon">Like</button>
+    <span id="like-button-example" class="visuallyhidden">Like example button markup</span>
+    <button class="button-icon wheelchair" id="button_all" aria-pressed="false" aria-describedby="a11y-button-example" aria-label="wheelchair icon">A11Y<span class="visuallyhidden">all the things.</span><span id="a11y-button-example" class="visuallyhidden">A11y example button markup</span></button>
+    <input type="image" class="magnifyingglass" id="button_search" aria-pressed="false" src="#" alt="Search" /><br><br>
+    <h3>Button States</h3>
+    <button class="button">Default</button>
+    <button class="button-hover">Hover</button>
+    <button class="button-active">Focus/Active</button>
+    <button class="button-disabled" disabled>Disabled</button>
+  </section>
 
     <div class="bottom">
         <div class="center">
