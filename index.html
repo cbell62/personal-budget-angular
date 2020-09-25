@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- This is an SEO Change -->
+    <meta name="description" 
+    content="This is a website to help with personal budgeting.">
     <title>Personal Budget</title>
     <link rel="stylesheet" href="/reset.css">
     <link rel="stylesheet" href="/main.css">
@@ -94,6 +97,15 @@
         </div>
 
     </div>
+<!-- This is an A11y Change -->
+    <span class="a11y-tip">
+        <button type="button" class="a11y-tip__trigger" aria-describedby="tt_id">
+            Personal Budgeting Begins here
+        </button>
+        <span id="tt_id" role="tooltip" class="a11y-tip__help a11y-tip__help--bottom">
+            It is a key skill needed for life
+        </span>
+    </span>
 
     <div class="bottom">
         <div class="center">
@@ -102,4 +114,8 @@
     </div>
 
 </body>
+<!-- This is a Semantic HTML Change -->
+<footer>
+   <p>This was modified by Calista Bell</p>
+</footer>
 </html>
