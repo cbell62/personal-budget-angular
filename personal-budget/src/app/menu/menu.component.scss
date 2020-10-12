@@ -1,0 +1,25 @@
+ul, ul li {
+  margin: 0;
+  padding: 0 ;
+  list-style: none;
+  display: inline-block;
+}
+
+nav{
+  background-color: #4d5791;
+}
+
+ul li a {
+  display: block;
+  padding: 0 20px;
+  line-height: 44px;
+  font-size: 1.4em;
+  text-decoration: none;
+  color: #fff;
+  margin: 0;
+}
+
+ul li a:hover  {
+  background-color: #fff;
+  color: #4d5791;
+}

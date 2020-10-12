@@ -12,21 +12,24 @@
 </head>
 <body>
 
-    <div class="menu">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/login.html">Login</a></li>
-            <li><a href="https://google.com">Google</a></li>
-        </ul>
-    </div>
+        <a href="#main" class="skip">Skip to content</a>
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/login.html">Login</a></li>
+        <li><a href="https://google.com">Google</a></li>
+      </ul>
+    </nav>
 
     <div class="hero">
         <h1>Personal Budget</h1>
-        <h2>A personal-budget management app</h2>
+        <!-- This is a Semantic HTML Change -->
+        <h3>A personal-budget management app</h3>
     </div>
 
-    <div class="container center">
+    <main class="center" id="main">
 
         <div class="page-area">
 
@@ -88,75 +91,71 @@
             </div>
     
             <div class="text-box">
-                <h1>Chart</h1>
+                <h1>Free</h1>
                 <p>
-                    <canvas id = "myChart" width="400" height="400"></canvas>
+                    <canvas id="myChart" width="400" height="400"></canvas>
                 </p>
             </div>
 
         </div>
 
-    </div>
+    </main>
     <!-- This is an A11y Change -->
     <button class="button" aria-required="true">Default</button>
-
-    <div class="bottom">
+    <footer class="bottom">
         <div class="center">
             All rights reserved &copy; Fabio Nolasco
         </div>
-    </div>
-
+    </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
-    <script> 
-    var dataSource =  {
-        datasets: [
-            {
-                data: [],
-                backgroundColor: [
-                    '#ffcd56',
-                    '#ff6384',
-                    '#36a2eb',
-                    '#fd6b19',
-                    '#ff0000',
-                    '#800080',
-                    '#00FF00',
-                ],
-            }
-        ],
-                labels: []
-    };
 
-    function createChart()
-    {
-        var ctx = document.getElementById("myChart").getContext("2d");
-        var myPieChart = new Chart (ctx, {
-            type: 'pie',
-            data: dataSource
-        });
-    }
+    <script>
+        var dataSource = {
+            datasets: [
+                {
+                    data: [30, 350, 90],
+                    backgroundColor: [
+                        '#ffcd56',
+                        '#ff6384',
+                        '#36a2eb',
+                        '#fd6b19',
+                        '#ff0000',
+                        '#800080',
+                        '#00FF00',
+                    ],
+                }
+            ],
+            labels: []
+            
+        };
 
-    function getBudget()
-    {
-        axios.get('/budget')
-        .then(function (res){
-            console.log(res.data);
-            for (var i = 0; i<res.data.myBudget.length; i++)
-            {
-                dataSource.datasets[0].data[i] = res.data.myBudget[i].budget;
-                dataSource.labels[i] = res.data.myBudget[i].title;
-            }
+        function createChart() {
+            var ctx = document.getElementById("myChart").getContext("2d");
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: dataSource
+            });
+        }
 
-            createChart();
-        })
-    }
-    getBudget();
+        function getBudget() {
+            axios.get('/budget')
+            .then(function (res) {
+                console.log(res.data);
+                for (var i = 0; i < res.data.myBudget.length; i++) {
+                    dataSource.datasets[0].data[i] = res.data.myBudget[i].budget;
+                    dataSource.labels[i] = res.data.myBudget[i].title;
+                }
+                createChart();
+            });
+        }
+        getBudget();
     </script>
 
 </body>
 <!-- This is a Semantic HTML Change -->
 <footer>
-   <p>This was modified by Calista Bell</p>
-</footer>
+    <p>This was modified by Calista Bell</p>
+ </footer>
 </html>
