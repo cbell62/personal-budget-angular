@@ -5,3 +5,4 @@
 
 
 - **Personal Budget Application Assignment using Angular for ITIS 4166 (Network Based App Development)**
+- **Term Taken: Fall 2020**
